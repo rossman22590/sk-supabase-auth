@@ -20,7 +20,7 @@ COPY . .
 RUN npx vite build
 
 # Expose the port the app runs on
-EXPOSE 5000
+EXPOSE 4173
 
 # Command to run the application
 CMD [ "npm", "run", "start" ]
