@@ -10,14 +10,11 @@ COPY package*.json ./
 # Install dependencies
 RUN npm install --production
 
-# Install Vite globally
-RUN npm install -g vite
-
 # Copy the rest of the application code
 COPY . .
 
-# Build the Vite project
-RUN npm run build
+# Build the Vite project using locally installed Vite binary
+RUN ./node_modules/.bin/vite build
 
 # Expose the port the app runs on
 EXPOSE 5000
