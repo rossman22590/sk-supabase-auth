@@ -8,13 +8,16 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 # Install dependencies
-RUN npm install --production
+RUN npm install
+
+# Install Vite as a development dependency
+RUN npm install vite --save-dev
 
 # Copy the rest of the application code
 COPY . .
 
 # Build the Vite project using locally installed Vite binary
-RUN ./node_modules/.bin/vite build
+RUN npx vite build
 
 # Expose the port the app runs on
 EXPOSE 5000
